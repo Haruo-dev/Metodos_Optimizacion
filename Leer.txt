@@ -1,4 +1,5 @@
 *Se debe tener python version 3.10+ 
-*Ejecutar el index.exe
+instalar las librerias numpy,flask,matplotlib,json,datetime (si ya las tiene pasar al siguiente paso)
+*Ejecutar el index.py
 *Copiar y pegar en el navegador
 	localhost:5000
