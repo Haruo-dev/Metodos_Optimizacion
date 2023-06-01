@@ -1,0 +1,212 @@
+{% extends 'layout.html'%}
+{% block title %}
+Método Dos Fases
+{% endblock %}
+{% block header %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dosfases.css')}}">
+<script type="text/javascript" src="{{ url_for('static', filename='js/modelo.js')}}"></script>
+<script type="module" src="{{ url_for('static', filename='js/animated.js')}}"></script>
+<script type="text/javascript" src=" https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=}"></script>
+<script src="https://unpkg.com/@barba/core"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+<script src="https://kit.fontawesome.com/089c5b502e.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block body %}
+<div data-barba="wrapper" class="div">
+    <div class="header">
+        <h1 class="titulo-pag"><i class="fa-brands fa-python" style="color: #2cc421;"></i> SIMPLEX</h1>
+    </div>
+    <div class="container" data-barba="container" data-barba-namespace="home">
+        <div class="titulo-container funcion-animated-titulo-1">
+            <h2>Método Dos Fases</h2>
+        </div>
+        <div class="funciones-container funcion-animated-1">
+            <div>
+                <div class="coolinput">
+                    <label for="input" class="text">Función Objetivo ({{ MaxMin }})</label>
+                    <input type="text" readonly name="input" class="input" value="{{ fo | safe }}">
+                </div>
+                {% for res in restricciones %}
+                    <div class="coolinput">
+                        <label for="input" class="text">Restricción  {{ loop.index }}</label>
+                        <input type="text" readonly name="input" class="input" value="{{ res | safe }}">
+                    </div>
+                {% endfor %}
+                <div class="coolinput">
+                    <label for="input" class="text">Restricción Predeterminada</label>
+                    <input type="text" readonly name="input" class="input" value=" X1, X2">
+                </div>
+            </div>
+            <div>
+                <div class="coolinput">
+                    <label for="input" class="text">Función Objetivo ({{ MaxMin }})</label>
+                    <input type="text" readonly name="input" class="input" value="{{ objMat1[0].estandarizacionFO() }}">
+                </div>
+                {% for res in new_restric %}
+                <div class="coolinput">
+                    <label for="input" class="text">Restricción  {{ loop.index }}</label>
+                    <input type="text" readonly name="input" class="input" value="{{ res | safe }}">
+                </div>
+                {% endfor %}
+                <div class="coolinput">
+                    <label for="input" class="text">Restricción Predeterminada</label>
+                    <input type="text" readonly name="input" class="input" value=" X1, X2">
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="titulo-container-2 funcion-animated-titulo-2">
+                <h2>Fase 1</h2>
+            </div>
+            {% for mat in objMat1 %}
+            <table class="modelo-table table-fase1 tabla funcion-animated-2">
+                <thead></thead>
+                <tbody>
+                    <tr id="tr-editable">
+                        <th class="green">Cj</th>
+                        {% for i in mat.getFilaCj() %}
+                            <th class="values">{{i}}</th>
+                        {% endfor %}
+                        <th class="green" colspan="2">Tabla {{ loop.index }}</th>
+                    </tr>
+                    <tr>
+                        <th class="green">Cx</th>
+                        {% for i in mat.getHeader() %}
+                            {%if loop.index != mat.getHeader()|length%}
+                                <th>{{i}}</th>
+                            {%endif%}
+                        {% endfor %}
+                        <th>Xb</th>
+                        <th>Bi</th>
+                    </tr>
+                {% for fila in mat.getMatriz() %}
+                    <tr class="{{'pivote' if loop.index-1 == mat.getRenglonPivote()}}">
+                        {% set datosFila = mat.datosDeFilaMatriz(loop.index-1) %}
+                        {% for valor in datosFila %}
+                            <th class="{{'pivote' if loop.index-2 == mat.getColumnaPivote()}} values">{{valor}}</th>
+                        {% endfor %}
+                    </tr>
+                {%endfor%}
+                    <tr>
+                        <th class="green">Zj-Cj</th>
+                        {% for valor in mat.getZjCj() %}
+                            <th class="values">{{valor}}</th>
+                        {% endfor %}
+                        <th colspan="2" class="z" class="green">
+                            Z={{ mat.getZ() }}
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+            {% endfor %}
+            <div class="titulo-container-2 funcion-animated-titulo-3">
+                <h2>Fase 2 </h2>
+            </div>
+            {% for mat in objMat2 %}
+                <table class="modelo-table table-fase2 tabla funcion-animated-3">
+                    <thead></thead>
+                    <tbody>
+                        <tr id="tr-editable">
+                            <th class="green">Cj</th>
+                            {% for i in mat.getFilaCj() %}
+                            <th class="values">{{i}}</th>
+                            {% endfor %}
+                            <th colspan="2" class="green">Tabla {{ loop.index }}</th>
+                        </tr>
+                        <tr>
+                            <th class="green">Cx</th>
+                            {% for i in mat.getHeader() %}
+                                {%if loop.index != mat.getHeader()|length%}
+                                    <th>{{i}}</th>
+                                {%endif%}
+                            {% endfor %}
+                            <th> Xb </th>
+                            <th>Bi</th>
+                        </tr>
+                        {% for fila in mat.getMatriz() %}
+                        <tr class="{{'pivote' if loop.index-1 == mat.getRenglonPivote()}}">
+                            {% set datosFila = mat.datosDeFilaMatriz(loop.index-1) %}
+                            {% for valor in datosFila %}
+                                <th class="{{'pivote' if loop.index-2 == mat.getColumnaPivote()}} values">{{valor}}</th>
+                            {% endfor %}
+                        </tr>
+                        {%endfor%}
+                        <tr>
+                            <th class="green">Zj-Cj</th>
+                            {% for valor in mat.getZjCj() %}
+                                <th class="values">{{valor}}</th>
+                            {% endfor %}
+                            <th colspan="2" class="z">
+                                Z={{ mat.getZ() }}
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            {% endfor %}
+            <div class="titulo-container-2 funcion-animated-titulo-4">
+                <h2>Resultado</h2>
+            </div>
+            <table class="modelo-table tabla">
+                <tbody>
+                    {% for value in objMat2[-1].respuestaFinal()%}
+                    <tr>
+                        <th class="values">{{value[0]}}</th>
+                        <th class="values">{{value[1]}}</th>
+                    {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    function convert(){
+            $(".values").each(function(){
+                if ( $(this).text() % 1 != 0 && !isNaN($(this).text())) {
+                    var result = toFraction($(this).text());
+                    $(this).text(result[0]+'/'+result[1]);
+                }
+            });
+            $(".z").each(function(){
+                var valores = $(this).text().split("=");
+                if ( valores[1] % 1 != 0 && !isNaN(valores[1])) {
+                    var result = toFraction(valores[1]);
+                    $(this).text("Z="+result[0]+'/'+result[1]);
+                }
+            });
+    }
+    var toFraction = function (decimal) {
+        var negative = decimal < 0;
+        decimal = Math.abs(decimal);
+        var final = false;
+        
+        var value1 = 0, aux1 = 1, value2 = 1, aux2 = 0, epoch = 0, val = decimal, epsilon = 1e-13;
+        while (!final) {
+            epoch++;
+            if (epoch > 10000) {
+                final = true;
+            }
+            var valint = parseInt(val);
+            var result = value1 + valint * value2;
+            var denom = aux1 + valint * aux2;
+            var conv = (val - valint);
+            if (conv < epsilon) {
+                final = true;
+            }
+            val = 1 / conv;
+            value1 = value2;
+            aux1 = aux2;
+            value2 = result;
+            aux2 = denom;
+            if (Math.abs(result / denom - decimal) < epsilon || epoch > 30) {
+                final = true;
+            }
+        }
+        return [negative ? -result : result, denom];
+    };
+
+    convert();
+</script>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+
+{% block titulo %}
+{% endblock %}
+
+{% block header %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/data.js')}}">
+</script>
+<script type="module" src="{{ url_for('static', filename='js/animated.js')}}"></script>
+<script type="text/javascript" src=" https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=}"></script>
+<script src="https://unpkg.com/@barba/core"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/data.css')}}">
+<script src="https://kit.fontawesome.com/089c5b502e.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block body %}
+<div data-barba="wrapper" class="div">
+<div class="container" data-barba="container" data-barba-namespace="home">
+    <div class="header">
+        <h1 class="titulo-pag"><i class="fa-brands fa-python" style="color: #2cc421;"></i> SIMPLEX</h1>
+    </div>
+    <main class="main main-animated">
+        <h1 class="text-animated">Metodo Grafico</h1>
+            <form id="form-data" class="form" method="POST" action="{{ url_for('selecMethod') }}">
+                <div class="imput-container">
+                    <label class="imput-label text-animated-2" for="objetivo">¿Cuál es el objetivo de la función?</label>
+                    <select id="minmax" class="select validate input_data-1">
+                        <option value="max">Maximizar</option>
+                        <option value="min">Minimizar</option>
+                    </select>
+                </div>
+                <div class="imput-container-2">
+                    <div>
+                        <label class="imput-label text-animated-3">Función objetivo:</label>
+                    </div>
+                    <div class="funcion_objetivo-container input_data-2">
+                        {% for i in range(variables)%}
+                        <div class="input-group">
+                            <input id="objFuncionX{{i+1}}" inputmode="numeric" class="form-control objFuncion validate" type="number"
+                                pattern="(-)*[0-9]+(.|/){0,1}[0-9]*" step=".01">
+                            <span >X<sub>{{ (i+1)|string + " +" if (i+1) != variables else
+                                    (i+1)}}</sub></span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="imput-container-2">
+                    <div>
+                        <label class="imput-label text-animated-4">Restricciones:</label>
+                    </div>
+                    
+                    {% for i in range(restricciones) %}
+
+                    <div class="funcion_objetivo-container Restricciones">
+                        {% for i in range(variables)%}
+                        <div class="input-group">
+                            <input type="number" inputmode="numeric" class=" form-control restric-var resx{{i+1}} validate "
+                                pattern="(-)*[0-9]+(.|/){0,1}[0-9]*" step=".01">
+                            <span>x<sub>{{ (i+1)|string + " +" if (i+1) != variables else
+                                    (i+1)}}</sub></span>
+                        </div>
+                        {% endfor %}
+                        <div class="input-group">
+                            <select class="select select-2 resOperand validate">
+                                <option value="<="> &le; </option>
+                                <option value=">="> &ge; </option>
+                                <option value="="> &#61; </option>
+                            </select>
+                            <input type="number" inputmode="numeric" class="form-control resResult validate"
+                                pattern="(-)*[0-9]+(.|/){0,1}[0-9]*" step=".01">
+                        </div>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+                <div class="form-group">
+                    <button class="button" id="btnSent" disabled>
+                        Resolver
+                    </button>
+                </div>
+                <input type="hidden" name="hidden-data" id="hiddenInput">
+            </form>
+    </main>
+</div>
+</div>
+
+
+{% endblock %}

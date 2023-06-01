@@ -1,0 +1,4 @@
+*Se debe tener python version 3.10+ 
+*Ejecutar el index.exe
+*Copiar y pegar en el navegador
+	localhost:5000

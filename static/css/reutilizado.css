@@ -1,0 +1,29 @@
+/*______ Fuente ______*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,500&display=swap');
+
+
+/*______ Variables ______*/
+:root {
+    /*-- colores --*/
+    --color-fondo: linear-gradient(106.9deg, rgba(148, 14, 60, 1) 60.9%, rgba(3, 22, 27, 1) 122.3%);
+    --color-card: #011522;
+    --color-fondo1: linear-gradient(43deg, #28d551 0%, #77c850 17%, #2eaa30 39%);
+
+
+    /*-- fuente --*/
+    --fuente-letra: 'Roboto', sans-serif;
+    --font-w-1: 900;
+    --font-w-2: 500;
+    --fonr-s-1: 6vh;
+    --fonr-s-2: 3vh;
+    --fonr-s-3: 2vh;
+    --fonr-s-4: 1vh;
+    --color-1: #fffbf4;
+}
+
+* {
+    font-family: var(--fuente-letra);
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}

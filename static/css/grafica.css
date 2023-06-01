@@ -1,0 +1,246 @@
+/*______ Fuente ______*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,500&display=swap');
+
+
+/*______ Variables ______*/
+:root {
+    /*-- colores --*/
+    --color-fondo: linear-gradient(106.9deg, rgba(148, 14, 60, 1) 60.9%, rgba(3, 22, 27, 1) 122.3%);
+    --color-card: #011522;
+    --color-fondo1: linear-gradient(43deg, #28d551 0%, #77c850 17%, #2eaa30 39%);
+
+
+    /*-- fuente --*/
+    --fuente-letra: 'Roboto', sans-serif;
+    --font-w-1: 900;
+    --font-w-2: 500;
+    --font-w-3: 400;
+    --fonr-s-1: 35px;
+    --fonr-s-2: 20px;
+    --color-2: #ffffff;
+}
+
+* {
+    font-family: var(--fuente-letra);
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /*outline: red dashed 1px;*/
+
+}
+
+body {
+    scroll-behavior: smooth;
+    overflow: hidden;
+}
+
+.pi {
+    font-size: 50px;
+    color: var(--color-2);
+}
+
+.pi-fondo-container {
+    position: absolute;
+    top: -200px;
+    left: -200px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: -5px -5px 27px #666666,
+        5px 5px 27px #ffffff;
+}
+
+
+/*______ Body ______*/
+.container {
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    flex-wrap: reverse;
+    position: relative;
+
+}
+
+
+
+/*______ Left ______*/
+.left {
+    height: auto;
+    overflow: scroll;
+    box-shadow: 13px 0px 15px -3px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+
+.tabla-container {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabla-container h2 {
+    margin-top: 20px;
+}
+
+.tabla {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.tabla tbody th {
+    background-color: #2eaa30;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    padding: 12px 15px;
+    text-align: center;
+    border-right: 1px solid #000000;
+}
+
+.tabla tbody td {
+    background-color: #b4b4b4;
+    color: #000000;
+    text-align: left;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px 15px;
+}
+
+/*______ Right ______*/
+.right {
+    width: 100%;
+    height: 100%;
+    background: var(--color-fondo1);
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    justify-content: center;
+}
+
+/*---------- Header ----------*/
+.header {
+    width: 100%;
+    height: 100px;
+    padding-left: 5%;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.titulo-pag {
+    font-weight: 900px;
+    letter-spacing: 2px;
+    color: var(--color-card);
+
+    -webkit-animation: tracking-in-expand 1.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.5s both;
+    animation: tracking-in-expand 1.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.5s both;
+}
+
+.img-grafica {
+    margin-top: 20px;
+    width: 80%;
+    height: 70%;
+    border-radius: 15px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.tabla-2 {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-top: 20px;
+    height: auto;
+}
+
+.tabla-2 thead tr {
+    background-color: #2eaa30;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.tabla-2 th,
+.tabla-2 td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.tabla-2 tbody tr {
+    border-bottom: 1px solid #000000;
+}
+
+
+.tabla-2 tbody tr:last-of-type {
+    border-bottom: 2px solid #78d7a9;
+}
+
+.tabla-2 tbody tr.active-row {
+    font-weight: bold;
+}
+
+.row-selected {
+    color: rgb(3, 116, 10) !important;
+}
+
+.div {
+    position: relative;
+
+}
+
+/**
+ * ----------------------------------------
+ * animation tracking-in-expand
+ * ----------------------------------------
+ */
+@-webkit-keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

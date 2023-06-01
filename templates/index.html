@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+{% block title %}
+Inicio
+{% endblock %}
+{% block header %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/index.js')}}"></script>
+<script type="module" src="{{ url_for('static', filename='js/animated.js')}}"></script>
+<script type="text/javascript" src=" https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=}"></script>
+<script src="https://unpkg.com/@barba/core"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/reutilizado.css')}}">
+<script src="https://kit.fontawesome.com/089c5b502e.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block body %}
+<div class="loading-container">
+    <div class="loading-screen"> 
+    </div>
+</div>
+<div data-barba="wrapper">
+<main class="container" data-barba="container" data-barba-namespace="home">
+    <div class="left">
+        <div>
+            <h1 class="titulo text-animated">Bienvenido a <i class="fa-brands fa-python" style="color: #2cc421;"></i> Simplex</h1>
+            <div class="form__container">
+                <form class="form" action="{{ url_for('data')}}" method="post">
+                    <div class="input__container">
+                        <label class="text-animated-2" for="tipoMetodo">Metodo</label>
+                        <select class="form-control select input-animated-1" name="tipoMetodo" id="">
+                            <option value="metodoGrafico" selected="true"> Método grafico</option>
+                            <option value="metodoDF">Método dos fases</option>
+                        </select>
+                    </div>
+                    <div class="input__container">
+                        <label for="variable" class="text-animated-3">Cantidad de variables:</label>
+                        <div class="container-input input-variables">
+                            <input id="variables" inputmode="numeric" type="number" name="numVariables" id="variable" class="form-control input-animated-2">
+                            <i></i>
+                            <i></i>
+                        </div>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="ecuaciones" class="text-animated-4">Cantidad de restricciones:</label>
+                        <div class="container-input input-ecuaciones">
+                            <input id="ecuaciones" inputmode="numeric" name="numRestricciones" class="form-control input-animated-3" type="number" value="1">
+                            <i></i>
+                            <i></i>
+                        </div>
+                    </div>
+                    <button class="button button-animated" id="btnSent" >Comenzar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="card card-animated-1">
+            <div class="icon">
+                <img src="static/img/img-proy/juan.png" alt="">
+            </div>
+        
+            <div class="content">
+                <h3>Juan David Corrales Linares</h3>
+                <p>20191578015</p>
+            </div>
+        </div>
+        <div class="card card-animated-2 card-animated-3">
+            <div class="icon">
+                <img src="static/img/img-proy/jefer.png" alt="">
+            </div>
+        
+            <div class="content">
+                <h3>Jeferson David Naranjo Barrera</h3>
+                <p>20191578128</p>
+            </div>
+        </div>
+    </div>
+</main> 
+</div>
+{% endblock %}

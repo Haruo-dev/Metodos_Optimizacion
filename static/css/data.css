@@ -1,0 +1,353 @@
+/*______ Fuente ______*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,500&display=swap');
+
+
+/*______ Variables ______*/
+:root {
+    /*-- colores --*/
+    --color-fondo: linear-gradient(106.9deg, rgba(148, 14, 60, 1) 60.9%, rgba(3, 22, 27, 1) 122.3%);
+    --color-card: #011522;
+    --color-fondo1: linear-gradient(43deg, #28d551 0%, #77c850 17%, #2eaa30 39%);
+    
+
+    /*-- fuente --*/
+    --fuente-letra: 'Roboto', sans-serif;
+    --font-w-1: 900;
+    --font-w-2: 500;
+    --font-w-3: 400;
+    --fonr-s-1: 35px;
+    --fonr-s-2: 20px;
+    --color-2: #ffffff;
+}
+
+* {
+    font-family: var(--fuente-letra);
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /*
+    outline: red dashed 1px;
+    */
+}
+
+body {
+    background: var(--color-fondo);
+    height: auto;
+}
+
+.pi{
+    font-size: 50px;
+    color: var(--color-2);
+}
+
+.pi-fondo-container {
+    position: absolute;
+    top: -200px;
+    left: -200px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow:  -5px -5px 27px #666666,
+                5px 5px 27px #ffffff;
+}
+
+
+.container {
+    margin: 0;
+    height: 100vh;
+    z-index: 9999;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: reverse;
+}
+.div {
+    position: relative;
+}
+
+/*---------- Header ----------*/
+.header {
+    width: 100%;
+    height: 100px;
+    padding-left: 5%;
+    margin-bottom: 10px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.titulo-pag {
+    font-weight: 900px;
+    letter-spacing: 2px;
+    color: var(--color-card);
+
+    -webkit-animation: tracking-in-expand 1.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.5s both;
+    animation: tracking-in-expand 1.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.5s both;
+}
+
+/*---------- Main ----------*/
+
+.main {
+    width: 80%;
+    height: auto;
+    background-color: #eee;
+    border: 10px solid #eee;
+    border-radius: 20px;
+    box-shadow: inset 5px 5px 10px #bbb, inset -5px -5px 10px #fff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.p {
+    height: auto;
+}
+.titulo-metodo {
+    margin-top: 10px;
+    font-size: var(--fonr-s-1);
+    font-weight: var(--font-w-1);
+    letter-spacing: 2px;
+    color: var(--color-card);
+}
+
+/*---------- Formulario ----------*/
+/*______ Formulario ______*/
+.form__container {
+    max-width: 100%;
+    height: 250px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form input {
+    width: 200px;
+    margin-top: 10px;
+    background-color: var(--color-2);
+    display: block;
+    height: 35px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1.5px solid rgb(0, 0, 0);
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    text-align: center;
+}
+
+.form input:hover {
+    border: 2px solid lightgrey;
+    box-shadow: 0px 0px 20px -17px;
+}
+
+.form input:active {
+    transform: scale(0.95);
+}
+
+.form input:focus {
+    border: 2px solid grey;
+}
+
+.imput-container {
+    width: 800px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-group {
+    width: 33%;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.input-group span {
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 10px;
+    font-size: var(--fonr-s-2);
+    font-weight: var(--font-w-2);
+}
+
+.v2 {
+    width: 100%;
+}
+
+.imput-container-2 {
+    width: 800px;
+    padding-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.funcion_objetivo-container {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imput-label {
+    display: inline-block;
+    font-size: var(--fonr-s-2);
+    font-weight: var(--font-w-2);
+}
+
+.select {
+    max-width: 50%;
+    margin-top: 10px;
+    display: block;
+    border: 1.5px solid rgb(0, 0, 0);
+
+}
+
+.select-2 {
+    width: 90px;
+    margin-right: 10px;
+    margin-top: 10px;
+    display: block;
+    border: 1.5px solid rgb(0, 0, 0);
+}
+
+.select,
+option {
+    margin-left: 2%;
+    width: 85%;
+    max-width: 150px;
+    height: 35px;
+    padding: 5px;
+    border-radius: 12px;
+    border: 1.5px solid lightgrey;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0px 0px 20px -18px;
+}
+
+.select:hover {
+    border: 2px solid lightgrey;
+    box-shadow: 0px 0px 20px -17px;
+}
+
+.select:active {
+    transform: scale(0.95);
+}
+
+.select:focus {
+    border: 2px solid grey;
+}
+
+
+.label {
+    display: inline-block;
+    font-size: var(--fonr-s-3)
+}
+
+.input2 {
+    width: 30%;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.form__container {
+    width: 80%;
+}
+
+.input__container1 {
+    padding: 0;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+}
+
+.input__container1 select {
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.input__container2 {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+}
+
+.button {
+    background-color: white;
+    color: black;
+    border-radius: 10em;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 1em 2em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: 2px solid black;
+    box-shadow: 0 0 0 0 black;
+    margin-top: 10px;
+    align-self: flex-start;
+}
+
+button:hover {
+    transform: translateY(-4px) translateX(-2px);
+    box-shadow: 2px 5px 0 0 black;
+}
+
+button:active {
+    transform: translateY(2px) translateX(1px);
+    box-shadow: 0 0 0 0 black;
+}
+
+
+/**
+ * ----------------------------------------
+ * animation tracking-in-expand
+ * ----------------------------------------
+ */
+@-webkit-keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

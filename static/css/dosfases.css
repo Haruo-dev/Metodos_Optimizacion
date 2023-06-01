@@ -1,0 +1,222 @@
+/*______ Fuente ______*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,500&display=swap');
+
+
+/*______ Variables ______*/
+:root {
+    /*-- colores --*/
+    --color-fondo: linear-gradient(106.9deg, rgba(148, 14, 60, 1) 60.9%, rgba(3, 22, 27, 1) 122.3%);
+    --color-card: #011522;
+    --color-fondo1: linear-gradient(43deg, #28d551 0%, #77c850 17%, #2eaa30 39%);
+
+
+    /*-- fuente --*/
+    --fuente-letra: 'Roboto', sans-serif;
+    --font-w-1: 900;
+    --font-w-2: 500;
+    --font-w-3: 400;
+    --fonr-s-1: 35px;
+    --fonr-s-2: 20px;
+    --color-2: #ffffff;
+}
+
+* {
+    font-family: var(--fuente-letra);
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /*
+    outline: red dashed 1px;
+    */
+}
+
+body {
+    background: var(--color-fondo);
+    height: auto;
+}
+
+.pi {
+    font-size: 50px;
+    color: var(--color-2);
+}
+
+/*---------- Header ----------*/
+.header {
+    width: 100%;
+    height: 100px;
+    padding-left: 5%;
+    margin-bottom: 10px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.titulo-pag {
+    font-weight: 900px;
+    letter-spacing: 2px;
+    color: var(--color-card);
+
+    -webkit-animation: tracking-in-expand 1.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.5s both;
+    animation: tracking-in-expand 1.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.5s both;
+}
+
+.container-primary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.container {
+    margin: 0;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: reverse;
+}
+
+.div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.tabla {
+    background-color: #bdb6b6;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 25px;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: 500px;
+}
+
+.tabla tbody th {
+    padding: 5px;
+}
+
+.tabla tbody td {
+    padding: 5px;
+}
+
+.white {
+    background-color: #bdb6b6;
+}
+
+.green {
+    border-radius: 10px 10px 10px 10px;
+    background-color: #108412;
+}
+
+.purple {
+    background-color: #421273;
+}
+
+.coolinput {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    position: static;
+    max-width: 500px;
+}
+
+.coolinput label.text {
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 700;
+    position: relative;
+    border-radius: 10px;
+    margin: 0 0 0 7px;
+    padding: 0 3px;
+    width: fit-content;
+}
+
+.coolinput input[type=text].input {
+    width: 275px;
+    padding: 11px 10px;
+    font-size: 20px;
+    font-weight: var(--font-w-1);
+    border: 2px #108412 solid;
+    border-radius: 5px;
+    background: #e8e8e8;
+}
+
+.coolinput input[type=text].input:focus {
+    outline: none;
+}
+
+.funciones-container {
+    width: 130%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.titulo-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.titulo-container h2 {
+    letter-spacing: 2px;
+    font-family: var(--fuente-letra);
+}
+
+.titulo-container-2 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.titulo-container-2 h2 {
+    letter-spacing: 2px;
+    font-family: var(--fuente-letra);
+}
+
+.pivote {
+    background-color: #6cd8b9;
+    color: #000;
+}
+
+.pivote:hover {
+    background-color: #28E7B1;
+    color: #000;
+}
+
+/**
+ * ----------------------------------------
+ * animation tracking-in-expand
+ * ----------------------------------------
+ */
+@-webkit-keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
